@@ -2,55 +2,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<!-- meta tags and title -->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tiny Project 6: Weather App</title>
 
-	<!-- external and internal CSS -->
-	<link rel="stylesheet" href="styles.css" media="all">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiny Project 6: Weather App</title>
 
-	<!-- external and internal JavaScript -->
-	<script src="scripts.js" defer></script>
-
+<link rel="stylesheet" href="styles.css">
+<script src="scripts.js" defer></script>
 
 </head>
+
 <body>
-    <main>
-        <div id="currentInfo">
-            <div id="currentTemp"> 76°F</div>
-            <div id="currentStatus"> Sunny</div>
+
+<main>
+
+    <div id="currentInfo">
+        <div id="location">Pullman, WA</div>
+        <div id="currentTemp">76°F</div>
+        <div id="currentStatus">Sunny</div>
+    </div>
+
+    <div id="currentHumidity">32%</div>
+    <div id="currentWind">3mph NNW</div>
+
+    <!-- ONE scroll container -->
+    <div id="futureInfo">
+
+        <div class="futureDay">
+            <div class="futureTemp">74°F</div>
+            <div class="futureWind">6mph NW</div>
+            <div class="futureStatus">Cloudy</div>
         </div>
 
-        <div id="currentHumidity">32%</div>
-        <div id="currentWind">3mph NNW</div>
-
-        <div id="futureInfo">
-            <div class="futureDay">
-                <div class="futureTemp">74°F</div>
-                <div class="futureWind">6mph NW</div>
-                <div class="futureStatus">Cloudy</div>
-            </div>
+        <div class="futureDay">
+            <div class="futureTemp">69°F</div>
+            <div class="futureWind">8mph NW</div>
+            <div class="futureStatus">Rainy</div>
         </div>
 
-                <div id="futureInfo">
-                    <div class="futureDay">
-                        <div class="futureTemp">69°F</div>
-                        <div class="futureWind">8mph NW</div>
-                        <div class="futureStatus">Rainy</div>
-            </div>
+        <div class="futureDay">
+            <div class="futureTemp">78°F</div>
+            <div class="futureWind">4mph NW</div>
+            <div class="futureStatus">Sunny</div>
         </div>
 
-                <div id="futureInfo">
-                     <div class="futureDay">
-                        <div class="futureTemp">78°F</div>
-                        <div class="futureWind">4mph NW </div>
-                        <div class="futureStatus">Sunny</div>
-            </div>
-        </div>
+    </div>
 
-
+</main>
 
 </body>
 </html>
