@@ -1,31 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
 
-:root { /* established variables to be used later */
-    --gameBoardSize: 80vh;
+:root {
+    --gameBoardSize: 80vmin;
     --gameBoardSpacer: 15px;
 }
 
-#gameBoard {     /* set up the grid layout */
-    position: relative;
-    max-width: var(--gameBoardSize);
-    max-height: var(--gameBoardSize);
-    background-color: black;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: var(--gameBoardSpacer)
+body {
+    font-family: "Annie Use Your Telescope", cursive;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
 }
 
-.gameSpace { /* described the visual style and layout of the grid */
-    position: relative;
-    background-color: rgb(255, 221, 86);
-    font-size: 10rem;
-    text-transform: uppercase;
+#title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    letter-spacing: 3px;
     text-align: center;
+    background-color: rgb(255, 221, 86);
+    color: black;
+    border-radius: 1rem;
+}
+
+/* GAME BOARD */
+#gameBoard {
+    width: var(--gameBoardSize);
+    height: var(--gameBoardSize);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--gameBoardSpacer);
+    background-color: black;
+    box-shadow: 0 10px 25px rgba(255,221,86,0.4);
+    padding: var(--gameBoardSpacer);
+    border-radius: 20px;
+}
+
+/* GAMECELLS */
+.gameSpace {
+    background-color: rgb(255, 221, 86);
+    font-size: clamp(3rem, 10vmin, 8rem);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Annie Use Your Telescope", cursive;
-    overflow: hidden;
+    text-transform: uppercase;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gameSpace:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* MOBILE / PORTRAIT */
+@media screen and (orientation: portrait) {
+
+   #gameBoard {
+        width: calc(var(--gameBoardSize) * 0.85);
+        height: calc(var(--gameBoardSize) * 0.85);
+        gap: calc(var(--gameBoardSpacer) * 0.6);
+   }
 
 }

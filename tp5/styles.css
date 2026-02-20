@@ -35,7 +35,6 @@ body {
   background: rgba(255,255,255,0.08);
   padding: 1rem 2rem;
   border-radius: 2rem;
-
   backdrop-filter: blur(10px);}
 
 /********************************** General Card styling */

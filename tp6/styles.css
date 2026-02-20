@@ -5,8 +5,7 @@
 /******************* general layout */
 
 :root {
-    --predictionBoxWidth: 70vw;
-    --predictionBoxHeight: 20vh;
+    ----cardWidth: 70vw;
 }
 
 * {
@@ -16,71 +15,89 @@
 body {
     padding:0;
     margin:0;
-    font-family: Helvetica, sans-serif;
+    font-family: Helvetica, serif;
 }
 
 main {
-    width:100vw;
-    height:100vh;
-    background-color:lightblue;
-
-    display:grid;
-    grid-template-columns:50vw 50vw;
-    grid-template-rows:50vh 30vh var(--predictionBoxHeight);
-    grid-template-areas:
-        'currentInfo currentInfo'
-        'currentHum currentWind'
-        'future future';
+    min-height:100vh;
+    /* soft sky gradient */
+    background: linear-gradient(
+        180deg,
+        #6fb3ff 0%,
+        #cfe9ff 100%
+    );
+    display:flex;
+    flex-direction:column;
+    display:flex;
+    flex-direction:column;
 }
 
 /************************************ current info */
 
 #currentInfo {
-    position:relative;
-    grid-area:currentInfo;
-    background-color:salmon;
-    border-bottom:1px solid black;
+    padding:2rem;
+    color:white;
+    flex: 1;              
+    display:flex;             
+    flex-direction:column;
+    justify-content:center;    
+    align-items:center;  
+}
+
+#location {
+    font-size:1.5rem;
+    opacity:0.9;
 }
 
 #currentTemp {
-    position:absolute;
-    font-size:5rem;
-    left:1rem;
+    font-size:6rem;
+    font-weight:700;
+    line-height:1;
 }
 
 #currentStatus {
-    position:absolute;
-    bottom:0;
-    left:1rem;
     font-size:2rem;
 }
 
 /************************************ current humidity */
 
-#currentHumidity {
-    grid-area:currentHum;
-    background-color:white;
-    border-right:1px solid black;
-    border-bottom:1px solid black;
+#details {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    padding:0.5rem;
+    margin-top:auto;
 }
 
-/************************************ current wind */
+.detailBox {
+    padding:1.5rem;
+    background:white;
 
-#currentWind {
-    grid-area:currentWind;
-    background-color:lightgrey;
-    border-bottom:1px solid black;
+    border-radius:14px;
+    margin:0.5rem;
+
+    /* ⭐ floating card effect */
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
 }
 
-/************************************ future prediction */
+.label {
+    font-size:0.9rem;
+    color:#666;
+}
+
+.value {
+    font-size:1.5rem;
+    font-weight:600;
+}
+
+/**************** FORECAST SCROLL AREA */
 
 #futureInfo {
-    position:relative;
-    grid-area:future;
-    background-color:lightgoldenrodyellow;
+    display:flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
 
-    overflow-x:auto;   /* horizontal scroll */
-    overflow-y:hidden;
+    background:transparent;
 
     scrollbar-width:none;
 }
@@ -90,46 +107,62 @@ main {
 }
 
 .futureDay {
-    position:absolute;   /* FIXED TYPO */
-    width:var(--predictionBoxWidth);
-    height:var(--predictionBoxHeight);
-    border-right:1px solid black;
+    flex: 0 0 auto;
+    width: var(--cardWidth);
+    background:white;
+    padding:1.2rem;
+    border-radius:14px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction:column;
+    gap:0.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* manual horizontal placement */
-
-.futureDay:nth-child(1) {
-    left:0;
+.futureDay:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.18);
 }
 
-.futureDay:nth-child(2) {
-    left:var(--predictionBoxWidth);
+.day {
+    font-weight:700;
 }
 
-.futureDay:nth-child(3) {
-    left:calc(var(--predictionBoxWidth) * 2);
+.tempRange {
+    font-size:1.6rem;
+    font-weight:600;
 }
 
-/************************************ responsive */
+.status {
+    font-size:1.1rem;
+}
 
-@media screen and (orientation: landscape) {
+.wind {
+    font-size:0.9rem;
+    color:#666;
+}
+
+/**************** RESPONSIVE (DESKTOP/LANDSCAPE) */
+
+@media (orientation: landscape) {
 
     :root {
-        --predictionBoxWidth:30vw;
-        --predictionBoxHeight:calc(100vh / 3);
+        --cardWidth: 30vw;
     }
 
-    main {
-        grid-template-columns:60vw 40vw;
-        grid-template-rows:
-            var(--predictionBoxHeight)
-            var(--predictionBoxHeight)
-            var(--predictionBoxHeight);
+    #location {
+        font-size:2rem;
+        opacity:0.9;
     }
 
-    #currentInfo {
-        border-bottom:none;
-        border-right:1px solid black;
+    #currentTemp {
+        font-size:8rem;
+        font-weight:700;
+        line-height:1;
+    }
+
+    #currentStatus {
+        font-size:3rem;
     }
 
 }

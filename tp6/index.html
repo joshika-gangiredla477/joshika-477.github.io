@@ -16,40 +16,61 @@
 
     <main>
 
-        <div id="currentInfo">
-            <div id="location">Pullman, WA</div>
-            <div id="currentTemp">76°F</div>
-            <div id="currentStatus">Sunny</div>
+    <!-- HERO / CURRENT WEATHER -->
+    <section id="currentInfo">
+
+        <div id="location">Pullman, WA</div>
+
+        <div id="currentTemp">76°</div>
+
+        <div id="currentStatus">Sunny ☀️</div>
+
+    </section>
+
+
+    <!-- DETAILS -->
+    <section id="details">
+
+        <div class="detailBox">
+            <div class="label">Humidity</div>
+            <div class="value">32%</div>
         </div>
 
-        <div id="currentHumidity">32%</div>
-        <div id="currentWind">3mph NNW</div>
-
-        <!-- ONE scroll container -->
-        <div id="futureInfo">
-
-            <div class="futureDay">
-                <div class="futureTemp">74°F</div>
-                <div class="futureWind">6mph NW</div>
-                <div class="futureStatus">Cloudy</div>
-            </div>
-
-            <div class="futureDay">
-                <div class="futureTemp">69°F</div>
-                <div class="futureWind">8mph NW</div>
-                <div class="futureStatus">Rainy</div>
-            </div>
-
-            <div class="futureDay">
-                <div class="futureTemp">78°F</div>
-                <div class="futureWind">4mph NW</div>
-                <div class="futureStatus">Sunny</div>
-            </div>
-
+        <div class="detailBox">
+            <div class="label">Wind</div>
+            <div class="value">3mph NNW</div>
         </div>
 
-    </main>
+    </section>
+
+
+    <!-- FORECAST (SIDE SCROLL) -->
+    <section id="futureInfo">
+
+        <div class="futureDay">
+            <div class="day">Mon</div>
+            <div class="tempRange">69°–74°</div>
+            <div class="status">☁️ Cloudy</div>
+            <div class="wind">6mph NW</div>
+        </div>
+
+        <div class="futureDay">
+            <div class="day">Tue</div>
+            <div class="tempRange">65°–70°</div>
+            <div class="status">🌧 Rainy</div>
+            <div class="wind">8mph NW</div>
+        </div>
+
+        <div class="futureDay">
+            <div class="day">Wed</div>
+            <div class="tempRange">72°–78°</div>
+            <div class="status">☀️ Sunny</div>
+            <div class="wind">4mph NW</div>
+        </div>
+
+    </section>
+
+</main>
 
 </body>
-
 </html>
